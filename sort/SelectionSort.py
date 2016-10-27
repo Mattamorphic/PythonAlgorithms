@@ -12,7 +12,5 @@ def sort(aList):
     for i in range(len(aList)):
         for j in range(i, len(aList)):
             if aList[i] > aList[j]:
-                temp = aList[i]
-                aList[i] = aList[j]
-                aList[j] = temp
+                aList[i], aList[j] = aList[j], aList[i]
     return aList
