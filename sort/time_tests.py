@@ -4,6 +4,7 @@ import random
 import MergeSort
 import SelectionSort
 import QuickSort
+import InsertionSort
 
 
 # Starting with a list of 100 elements, upto 10000 elements
@@ -12,15 +13,18 @@ for i in range(100, 10000, 100):
     merge = timeit.Timer("MergeSort.sort([random.randint(0,1000) for r in range(%d)])" % i, "from __main__ import random, MergeSort")
     quick = timeit.Timer("QuickSort.sort([random.randint(0,1000) for r in range(%d)])" % i, "from __main__ import random, QuickSort")
     selection = timeit.Timer("SelectionSort.sort([random.randint(0,1000) for r in range(%d)])" % i, "from __main__ import random, SelectionSort")
+    insertion = timeit.Timer("InsertionSort.sort([random.randint(0,1000) for r in range(%d)])" % i, "from __main__ import random, InsertionSort")
 
     # Run each test 100 times and store the average result in a variable
     merge_time = merge.timeit(number=100)
     quick_time = quick.timeit(number=100)
     selection_time = selection.timeit(number=100)
+    insertion_time = insertion.timeit(number=100)
 
     # print the results
     print("Test with %d elements:"%(i))
     print("MergeSort     test: %d, %10.3f" % (i, merge_time))
     print("QuickSort     test: %d, %10.3f" % (i, quick_time))
     print("SelectionSort test: %d, %10.3f" % (i, selection_time))
+    print("InsertionSort test: %d, %10.3f" % (i, insertion_time))
     print("-----------")
