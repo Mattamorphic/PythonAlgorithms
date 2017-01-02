@@ -1,13 +1,14 @@
 import unittest
-import SelectionSort
+import BubbleSort
 import MergeSort
 import QuickSort
+import SelectionSort
 
 class TestSortFunctions(unittest.TestCase):
 
-    def test_selection_sort(self):
+    def test_bubble_sort(self):
         aList = list("matthew")
-        self.assertEqual(SelectionSort.sort(aList), ['a', 'e', 'h', 'm', 't', 't', 'w'])
+        self.assertEqual(BubbleSort.sort(aList), ['a', 'e', 'h', 'm', 't', 't', 'w'])
 
 
     def test_merge_sort(self):
@@ -17,6 +18,10 @@ class TestSortFunctions(unittest.TestCase):
     def test_quick_sort(self):
         aList = list('matthew')
         self.assertEqual(QuickSort.sort(aList), ['a', 'e', 'h', 'm', 't', 't', 'w'])
+
+    def test_selection_sort(self):
+        aList = list('matthew')
+        self.assertEqual(SelectionSort.sort(aList), ['a', 'e', 'h', 'm', 't', 't', 'w'])
 
 
 if __name__ == '__main__':
