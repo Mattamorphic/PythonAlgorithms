@@ -1,5 +1,6 @@
 import unittest
 import BinarySearch
+import QuickSelect
 
 class TestSearchFunctions(unittest.TestCase):
 
@@ -28,6 +29,11 @@ class TestSearchFunctions(unittest.TestCase):
         aList = ['a']
         aItem = 'x'
         self.assertFalse(BinarySearch.search(aItem, aList))
+
+    def test_quick_select(self):
+        aList = [5, 2, 21, 8, 20, 36, 1, 11, 13, 4, 17]
+        kthSmallest = 3
+        self.assertEqual(QuickSelect.search(kthSmallest, aList), 4)
 
 if __name__ == '__main__':
     unittest.main()
