@@ -1,6 +1,7 @@
 import unittest
 import BinarySearch
 import QuickSelect
+import BasicStringSearch
 
 class TestSearchFunctions(unittest.TestCase):
 
@@ -34,6 +35,16 @@ class TestSearchFunctions(unittest.TestCase):
         aList = [5, 2, 21, 8, 20, 36, 1, 11, 13, 4, 17]
         kthSmallest = 3
         self.assertEqual(QuickSelect.search(kthSmallest, aList), 4)
+
+    def test_basic_string_search(self):
+        aString = 'abcdefghijklmnopqrstuvwxyz'
+        aTargetSeq = 'ghi'
+        self.assertEqual(BasicStringSearch.search(aTargetSeq, aString), 6)
+
+    def test_basic_string_search_not_found(self):
+        aString = 'abcdefghijklmnopqrstuvwxyz'
+        aTargetSeq = 'test'
+        self.assertEqual(BasicStringSearch.search(aTargetSeq, aString), -1)
 
 if __name__ == '__main__':
     unittest.main()

@@ -10,19 +10,12 @@
         update k in relation to this partion (so we minus from k, the size of the left part we're throwing away and 1 for the pivot)
 
     :param integer      k       The kth smallest item in the list we want
-    :aList list(int)    aList   A List of integers 
+    :aList list(int)    aList   A List of integers
 '''
 def search(k, aList):
     if len(aList) == 1:
         return aList[0]
-    pivotValue = aList[0]
-    leftPart = list()
-    rightPart = list()
-    for i in aList[1:]:
-        leftPart.append(i) if i < pivotValue else rightPart.append(i)
-    if len(leftPart) >= k:
-        return search(k, leftPart)
-    elif len(leftPart) == (k - 1):
-        return pivotValue
-    else:
-        return search(k-len(leftPart)-1, rightPart)
+    p = aList[0]
+    l, r = list(), list()
+    [l.append(i) if i < p else r.append(i) for i in aList[1:]]
+    return search(k, l) if len(l) >= k else p if len(l) == (k-1) else search(k-len(l)-1, r)
