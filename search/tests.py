@@ -2,6 +2,7 @@ import unittest
 import BinarySearch
 import QuickSelect
 import BasicStringSearch
+import FindPairs
 
 class TestSearchFunctions(unittest.TestCase):
 
@@ -32,9 +33,9 @@ class TestSearchFunctions(unittest.TestCase):
         self.assertFalse(BinarySearch.search(aItem, aList))
 
     def test_quick_select(self):
-        aList = [5, 2, 21, 8, 20, 36, 1, 11, 13, 4, 17]
-        kthSmallest = 3
-        self.assertEqual(QuickSelect.search(kthSmallest, aList), 4)
+        aList = [9, 32, 20, 16, 23, 26, 8, 20, 18, 3]
+        kthSmallest = 8
+        self.assertEqual(QuickSelect.search(kthSmallest, aList), 23)
 
     def test_basic_string_search(self):
         aString = 'abcdefghijklmnopqrstuvwxyz'
@@ -45,6 +46,21 @@ class TestSearchFunctions(unittest.TestCase):
         aString = 'abcdefghijklmnopqrstuvwxyz'
         aTargetSeq = 'test'
         self.assertEqual(BasicStringSearch.search(aTargetSeq, aString), -1)
+
+    def test_find_pairs_of_ints(self):
+        k = 50
+        aList = [9, 1, 11, 36, 14, 50, 9, 0, 8, 24, 22, 28, 39]
+        self.assertEqual([(0, 50), (36, 14), (39, 11), (22, 28)], FindPairs.find(k, aList))
+
+    def test_find_pairs_of_ints_single_item_list(self):
+        k = 9
+        aList = [9]
+        self.assertEqual(None, FindPairs.find(k, aList))
+
+    def test_find_pairs_of_ints_duplicate_item_list(self):
+        k = 50
+        aList = [10, 10, 20, 20, 30, 30]
+        self.assertEqual([(20, 30)], FindPairs.find(k, aList))
 
 if __name__ == '__main__':
     unittest.main()
