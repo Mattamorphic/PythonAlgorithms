@@ -3,6 +3,7 @@ import BinarySearch
 import QuickSelect
 import BasicStringSearch
 import FindPairs
+import InterpolationSearch
 
 class TestSearchFunctions(unittest.TestCase):
 
@@ -61,6 +62,11 @@ class TestSearchFunctions(unittest.TestCase):
         k = 50
         aList = [10, 10, 20, 20, 30, 30]
         self.assertEqual([(20, 30)], FindPairs.find(k, aList))
+
+    def test_interpolation_search(self):
+        aList = [0, 1, 3, 4, 7, 9, 11, 18 , 21, 28, 29, 34]
+        aItem = 7
+        self.assertEqual(InterpolationSearch.search(aItem, aList), 4)
 
 if __name__ == '__main__':
     unittest.main()
