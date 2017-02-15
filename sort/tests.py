@@ -3,6 +3,7 @@ import BubbleSort
 import MergeSort
 import QuickSort
 import SelectionSort
+import ShellSort
 
 class TestSortFunctions(unittest.TestCase):
 
@@ -23,6 +24,9 @@ class TestSortFunctions(unittest.TestCase):
         aList = list('matthew')
         self.assertEqual(SelectionSort.sort(aList), ['a', 'e', 'h', 'm', 't', 't', 'w'])
 
+    def test_shell_sort(self):
+        aList = list('matthew')
+        self.assertEqual(ShellSort.sort(aList), ['a', 'e', 'h', 'm', 't', 't', 'w'])
 
 if __name__ == '__main__':
     unittest.main()
